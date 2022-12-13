@@ -1,0 +1,130 @@
+/* Define the colour schemes global variables */
+
+:root[data-theme="default"],
+:root[data-theme="light"] {
+  --bg-color: #f2f2f2;
+  --text-color: #1a1a1a;
+  --text-muted-color: #585858;
+  --link-color: #2f95fa;
+}
+
+:root[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --text-color: #f2f2f2;
+  --text-muted-color: #959595;
+  --link-color: #206bb6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="default"] {
+    --bg-color: #1a1a1a;
+    --text-color: #f2f2f2;
+    --text-muted-color: #959595;
+    --link-color: #206bb6;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 18px;
+  line-height: 1.4;
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  /* Smooth transition when switching between themes */
+  --duration: 0.5s;
+  --timing: ease;
+
+  color: var(--text-color);
+  background-color: var(--bg-color);
+
+  transition: color var(--duration) var(--timing),
+    background-color var(--duration) var(--timing);
+}
+
+/* ================================================================
+NAVBAR STYLING
+================================================================ */
+
+nav {
+  padding: 12px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ================================================================
+TOGGLE STYLING
+================================================================ */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #4b5199;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #f3b921;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #f3b921;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50px;
+}
