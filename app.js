@@ -1,14 +1,13 @@
 window.addEventListener("load", function () {
   const themeToggle = document.getElementById("themeToggle");
-  const currentTheme = localStorage.getItem("data-theme");
 
-  if (currentTheme == "dark") {
+  if (savedTheme == "dark") {
     themeToggle.checked = false;
   }
-  if (currentTheme == "light") {
+  if (savedTheme == "light") {
     themeToggle.checked = true;
   }
-  if (currentTheme == "default") {
+  if (savedTheme == "default") {
     themeToggle.checked = true;
   }
 });
